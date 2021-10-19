@@ -88,9 +88,9 @@ router.put('/:id', (req, res) => {
       title: req.body.title
     },
     {
-    where: {
-      id: req.params.id
-      }
+      where: {
+        id: req.params.id
+        }
     }
   )
     .then(dbPostData => {
