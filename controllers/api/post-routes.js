@@ -89,7 +89,7 @@ router.post('/', (req, res) => {
 });
 
 router.put('/upvote', (req, res) => {
-  // Make sure the session exists first
+  // make sure the session exists first
   if (req.session) {
     // pass session id along with all destructured properties on req.body
     Post.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, Comment, User })
