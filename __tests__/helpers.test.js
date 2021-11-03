@@ -1,4 +1,4 @@
-const {format_date, format_plural} = require('../utils/helpers');
+const {format_date, format_plural, format_url} = require('../utils/helpers');
 const expectExport = require("expect");
 
 test('format_date() returns a date string', () => {
@@ -10,4 +10,14 @@ test('format_date() returns a date string', () => {
 test('format_plural() correctly pluralizes words based on number entered', () => {
   expectExport(format_plural('Tiger', 2)).toBe('Tigers');
   expectExport(format_plural('Lion', 1)).toBe('Lion');
+});
+
+test('format_url() returns a simplified url string', () => {
+  const url1 = format_url('http://test.com/page/1');
+  const url2 = format_url('https://www.coolstuff.com/abcdefg/');
+  const url3 = format_url('https://www.google.com?q=hello');
+
+  expect(url1).toBe('test.com');
+  expect(url2).toBe('coolstuff.com');
+  expect(url3).toBe('google.com');
 });
