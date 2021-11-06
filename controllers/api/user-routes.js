@@ -80,7 +80,7 @@ router.post('/', withAuth, (req, res) => {
 });
 
 // POST /api/users/login
-router.post('/login', withAuth, (req, res) => {
+router.post('/login', (req, res) => {
   // expects {email: 'steven.bendrick@gmail.com', password: 'password1234'}
   User.findOne({
     where: {
